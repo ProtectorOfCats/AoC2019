@@ -18,7 +18,7 @@ class Layout{
 
 	static String buildString(ArrayList<Tile> tiles){
 		String retval = "";
-		Tile[][] map = Map.makeMap(tiles);
+		Tile[][] map = makeMap(tiles);
 		for(int y = 0; y < map.length; y++){
 			if(!map[y][0].isPortal()) retval += "╲";
 			for(int x = 0; x < map[0].length; x++){
