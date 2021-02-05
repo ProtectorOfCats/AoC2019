@@ -65,11 +65,8 @@ class Advent20{
 						break;
 					}
 				}
-				if(found){
-					continue;
-				}else{
-					history.put(key,breadth.get(key).layer());
-				}
+				if(found) continue;
+				history.put(key,breadth.get(key).layer());
 				result = breadth.get(key).traverse(key[1].teleport());
 				for(Tile[] T : result.keySet()){
 					Maze passAlong = result.get(T);
