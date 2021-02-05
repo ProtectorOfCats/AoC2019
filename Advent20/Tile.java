@@ -183,7 +183,7 @@ class Tile{
 	public boolean innerCircle(){ return (x > 0 && x < maxX) && (y > 0 && y < maxY); }
 	public boolean outerCircle(){ return !innerCircle(); }
 	public boolean isVoid(){ return type.equals("╲") || type.equals("╳"); }
-	public boolean isWall(){ return !(isClear() || isPortal() || isVoid()); }
+	public boolean isWall(){ return type.equals("#"); }
 	public boolean isClear(){ return type.equals(" "); }
 	public boolean isPortal(){ return type.matches("[A-Z]{2}"); }
 }
