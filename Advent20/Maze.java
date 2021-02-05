@@ -24,7 +24,7 @@ class Maze{
 	public HashMap<Tile[],Maze> traverse(Tile start){
 		if(layer == 0 || layer == 1){
 			for(Tile t : tiles){
-				if(t.y() == start.y() && t.x() == start.x()){
+				if(t.ID() == start.ID()){
 					if(t != start){
 						start = t;
 					}
