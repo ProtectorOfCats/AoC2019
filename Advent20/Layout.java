@@ -50,13 +50,13 @@ class Layout{
 					tiles.set(index,new Tile(t.x(),t.y()," "));
 				}
 			}
-			for(Tile t : portals) t.totalWipe();
-			Map.makeMap(tiles);
+			for(Tile t : tiles) t.totalWipe();
+			makeMap(tiles);
 			layer_zero = findPortals(tiles);
 			for(Tile t : layer_zero){
 				t.stepP2(0);
 				for(Tile T : layer_zero) if(T != t) t.reach(T);
-				reset(tiles);
+				t.reset();
 			}
 			lz = buildString(tiles);
 		}
@@ -74,13 +74,13 @@ class Layout{
 					tiles.set(index,new Tile(t.x(),t.y()," "));
 				}
 			}
-			for(Tile t : portals) t.totalWipe();
-			Map.makeMap(tiles);
+			for(Tile t : tiles) t.totalWipe();
+			makeMap(tiles);
 			not_layer_zero = findPortals(tiles);
 			for(Tile t : not_layer_zero){
 				t.stepP2(0);
 				for(Tile T : not_layer_zero) if(T != t) t.reach(T);
-				reset(tiles);
+				t.reset();
 			}
 			nlz = buildString(tiles);
 		}
@@ -90,8 +90,6 @@ class Layout{
 	public static String partOneToString(){ if(p1 == null) part_one(); return p1; }
 	public static String layerZeroToString(){ if(lz == null) layer_zero(); return lz; }
 	public static String notLayerZeroToString(){ if(nlz == null) not_layer_zero(); return nlz; }
-
-	private static void reset(ArrayList<Tile> tiles){ for(Tile t : tiles) t.reset(); }
 
 	private static ArrayList<Tile> findPortals(ArrayList<Tile> tiles){
 		ArrayList<Tile> portals = new ArrayList<>();
@@ -161,6 +159,11 @@ class Layout{
 		reset(allTiles);
 	}
 
+	private static boolean isLetter(char c){
+		if((c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z')) return true;
+		return false;
+	}
+
 	private static Tile[][] makeMap(ArrayList<Tile> tiles){
 		int maxX = 0, maxY = 0;
 		for(Tile t : tiles){
@@ -179,10 +182,5 @@ class Layout{
 			}
 		}
 		return map;
-	}
-
-	private static boolean isLetter(char c){
-		if((c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z')) return true;
-		return false;
 	}
 }
