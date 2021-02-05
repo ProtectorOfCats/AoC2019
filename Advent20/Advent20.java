@@ -84,7 +84,7 @@ class Advent20{
 						if(same) continue;
 						for(Maze m : breadth.values()){
 							if(m == passAlong) break;
-							same = m != passAlong && m.layer() == passAlong.layer();
+							same = m.layer() == passAlong.layer();
 							if(same && m.getPath() == passAlong.getPath()){
 								passAlong = m;
 								break;
