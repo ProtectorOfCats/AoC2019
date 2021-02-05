@@ -17,7 +17,6 @@ class Advent20{
 			if(t.value().equals("ZZ")) exit = t;
 		}
  		ArrayList<Integer> path = traverse(base,exit);
- 		path.add((entrance.ID() * -1000) - 1);
 		Tile[][] map = Layout.map();
 		ArrayList<Tile> tiles = new ArrayList<>();
 		for(Tile[] T : map) for(Tile t : T) if(t.isPortal()) tiles.add(t);
