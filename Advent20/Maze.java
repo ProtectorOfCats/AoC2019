@@ -45,7 +45,7 @@ class Maze{
 			}
 			if(keys.get(i) == exit || keys.get(i) == entrance){
 				passOn.add((keys.get(i).ID() * -1000) - 1);
-				retval.put(new Tile[]{ null,keys.get(i) }, new Maze(newLayer,passOn,""));
+				retval.put(new Tile[]{ null,keys.get(i) }, new Maze(newLayer,new ArrayList<>(passOn),""));
 				passOn.remove(passOn.size() - 1);
 			}else if(newLayer >= 0){
 				Maze subMaze = null;
