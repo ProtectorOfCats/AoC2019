@@ -70,7 +70,7 @@ class Advent20{
 				result = breadth.get(key).traverse(key[1].teleport());
 				for(Tile[] T : result.keySet()){
 					Maze passAlong = result.get(T);
-					boolean same = true;
+					boolean same = false;
 					if(T[1].value().equals(Start.value().equals("AA") ? "ZZ" : "AA")){
 						successfulPath = passAlong.getPath();
 						break;
@@ -81,7 +81,7 @@ class Advent20{
 								break;
 							}
 						}
-						if(!same) continue;
+						if(same) continue;
 						for(Maze m : breadth.values()){
 							if(m == passAlong) break;
 							same = m != passAlong && m.layer() == passAlong.layer();
