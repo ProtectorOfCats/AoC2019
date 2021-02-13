@@ -91,6 +91,8 @@ class Layout{
 	public static String layerZeroToString(){ if(lz == null) layer_zero(); return lz; }
 	public static String notLayerZeroToString(){ if(nlz == null) not_layer_zero(); return nlz; }
 
+	private static void reset(ArrayList<Tile> tiles){ for(Tile t : tiles) t.reset(); }
+
 	private static ArrayList<Tile> findPortals(ArrayList<Tile> tiles){
 		ArrayList<Tile> portals = new ArrayList<>();
 		for(Tile t : tiles){
